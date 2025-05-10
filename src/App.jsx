@@ -81,7 +81,7 @@ function App() {
                 </h3>
               </div>
             </div>
-            <div></div>
+
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
               <img
                 className="absolute top-0 left-0 w-full h-full object-cover"
@@ -93,6 +93,10 @@ function App() {
                 src="/bg.png"
                 alt=""
               />
+              <div className="text text-white flex flex-col gap-1 absolute top-20 left-[60%] -translate-x-1/2 scale-[1.5] rotate-[-7deg]">
+                <h1 className="text-[7rem] leading-none -ml-40">rajeev</h1>
+                <h1 className="text-[8.5rem] leading-none ml-52">tiwari</h1>
+              </div>
               <img
                 className=" absolute  character top-[19%]   left-1/2 -translate-x-1/2  scale-[0.9] "
                 src="/boy.png"
