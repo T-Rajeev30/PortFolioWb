@@ -72,12 +72,12 @@ function App() {
             <div className="imagesdiv relative w-full h-screen">
               <img
                 className="absolute top-0 left-0 w-full h-full object-cover"
-                src="/public/sky.png"
+                src="/sky.png"
                 alt=""
               />
               <img
                 className="absolute top-0 left-0 w-full h-full object-cover"
-                src="/public/bg.png"
+                src="/bg.png"
                 alt=""
               />
               <img
