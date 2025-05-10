@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-
+import "remixicon/fonts/remixicon.css";
 function App() {
   let [showContent, setShowContent] = useState(false);
   useGSAP(() => {
@@ -81,6 +81,7 @@ function App() {
                 </h3>
               </div>
             </div>
+            <div></div>
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
               <img
                 className="absolute top-0 left-0 w-full h-full object-cover"
@@ -98,10 +99,28 @@ function App() {
                 alt=""
               />
             </div>
+            <div className="btmbar text-white absolute bottom-0 left-0 w-full py-10 px-8 bg-gradient-to-t from-black to-transparent">
+              <div className="flex gap-4 items-center">
+                <i class="text-4xl ri-arrow-down-line"></i>
+                <h3 className="text-xl  font-[Helvetica_Now_Display]">
+                  Scroll Down
+                </h3>
+              </div>
+              <h1 className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-10  ">
+                <h2 className="text-xl">
+                  Github <i class="ri-github-fill"></i>
+                </h2>
+                <h2 className="text-xl">
+                  Linkdin <i class="ri-linkedin-box-fill"></i>
+                </h2>
+                <h2 className="text-xl">
+                  Instagram<i class="ri-instagram-fill"></i>
+                </h2>
+              </h1>
+            </div>
           </div>
         </div>
       )}
-      ;
     </>
   );
 }
