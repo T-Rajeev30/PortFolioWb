@@ -176,7 +176,7 @@ function App() {
                   dominantBaseline="middle"
                   fontFamily="Arial Black"
                 >
-                  30
+                  XI
                 </text>
               </g>
             </mask>
