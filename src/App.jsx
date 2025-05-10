@@ -1,8 +1,11 @@
-import React, { useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "remixicon/fonts/remixicon.css";
+import React, { useEffect, useRef, useState } from "react";
+
 function App() {
+  const audioRef = useRef(null);
+
   let [showContent, setShowContent] = useState(false);
   useGSAP(() => {
     const tl = gsap.timeline();
@@ -28,7 +31,23 @@ function App() {
       },
     });
   });
+  useEffect(() => {
+    const playAudio = () => {
+      audioRef.current?.play().catch((err) => {
+        console.warn("Autoplay failed:", err);
+      });
+    };
 
+    // Fallback in case autoplay is blocked
+    window.addEventListener("click", playAudio, { once: true });
+
+    // Try autoplay directly
+    playAudio();
+
+    return () => {
+      window.removeEventListener("click", playAudio);
+    };
+  }, []);
   useGSAP(() => {
     if (!showContent) return;
     const main = document.querySelector(".main");
@@ -80,6 +99,13 @@ function App() {
   }, [showContent]);
   return (
     <>
+      <audio
+        ref={audioRef}
+        src="/videoplayback.m4a"
+        autoPlay
+        playsInline
+        preload="auto"
+      />
       <div className="svg fixed top-0 left-0 z-[100] w-full h-screen overflow-hidden bg-black">
         <svg
           viewBox="0 0 800 600"
