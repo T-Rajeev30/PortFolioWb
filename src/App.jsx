@@ -23,31 +23,82 @@ function App() {
       transformOrigin: "50% 50%",
       opacity: 0,
       onUpdate: function () {
-        if (this.progress() >= 0.9) {
-          document.querySelector(".svg").remove();
+        // Only run once when progress reaches 0.9
+        if (this.progress() >= 0.9 && !this._ranOnce) {
+          this._ranOnce = true; // custom flag to prevent repeat
+
+          const svg = document.querySelector(".svg");
+          if (svg) svg.remove();
+
           setShowContent(true);
-          this.kill();
+
+          // Fade audio volume in after animation finishes
+          const audio = audioRef.current;
+          if (audio) {
+            audio.muted = false; // unmute
+            let vol = 0;
+            const fade = setInterval(() => {
+              if (vol < 1) {
+                vol += 0.1;
+                audio.volume = Math.min(vol, 1);
+              } else {
+                clearInterval(fade);
+              }
+            }, 300);
+          }
+
+          this.kill(); // kill timeline once done
         }
       },
     });
   });
+
   useEffect(() => {
-    const playAudio = () => {
-      audioRef.current?.play().catch((err) => {
-        console.warn("Autoplay failed:", err);
-      });
+    const audio = audioRef.current;
+
+    const tryPlayAudio = () => {
+      if (!audio) return;
+
+      audio.muted = true;
+      audio.volume = 0;
+
+      audio
+        .play()
+        .then(() => {
+          console.log("Autoplay successful");
+
+          setTimeout(() => {
+            audio.muted = false;
+            let vol = 0;
+            const fade = setInterval(() => {
+              if (vol < 1) {
+                vol += 0.1;
+                audio.volume = Math.min(vol, 1);
+              } else {
+                clearInterval(fade);
+              }
+            }, 300);
+          }, 4000); // delay to match animation
+        })
+        .catch((err) => {
+          console.warn("Autoplay blocked. Waiting for user interaction.");
+
+          const resumeAudio = () => {
+            audio.play().then(() => {
+              console.log("Playback resumed after interaction");
+              audio.muted = false;
+              audio.volume = 1;
+            });
+            document.removeEventListener("click", resumeAudio);
+          };
+
+          document.addEventListener("click", resumeAudio);
+        });
     };
 
-    // Fallback in case autoplay is blocked
-    window.addEventListener("click", playAudio, { once: true });
-
-    // Try autoplay directly
-    playAudio();
-
-    return () => {
-      window.removeEventListener("click", playAudio);
-    };
+    tryPlayAudio();
   }, []);
+
   useGSAP(() => {
     if (!showContent) return;
     const main = document.querySelector(".main");
