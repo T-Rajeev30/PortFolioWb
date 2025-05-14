@@ -261,15 +261,22 @@ function App() {
                 </h3>
               </div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-10">
-                <h2 className="text-xl">
-                  Github <i className="ri-github-fill"></i>
-                </h2>
-                <h2 className="text-xl">
-                  LinkedIn <i className="ri-linkedin-box-fill"></i>
-                </h2>
-                <h2 className="text-xl">
-                  Instagram <i className="ri-instagram-fill"></i>
-                </h2>
+                <a href="https://github.com/T-Rajeev30">
+                  <h2 className="text-xl">
+                    Github <i className="ri-github-fill"></i>
+                  </h2>
+                </a>
+
+                <a href="https://www.linkedin.com/in/rajeev-tiwari-5b45a4247/">
+                  <h2 className="text-xl">
+                    LinkedIn <i className="ri-linkedin-box-fill"></i>
+                  </h2>
+                </a>
+                <a href="https://www.instagram.com/itz_rajeevtiwari/">
+                  <h2 className="text-xl">
+                    Instagram <i className="ri-instagram-fill"></i>
+                  </h2>
+                </a>
               </div>
             </div>
             <div className="w-full aboutsection  bg-black text-[#d0d3bc]  ">
