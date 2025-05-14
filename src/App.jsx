@@ -11,6 +11,10 @@ import {
   SiMongodb,
   SiDrone,
   SiGit,
+  SiPython,
+  SiNodedotjs,
+  SiExpress,
+  SiBlender,
 } from "react-icons/si";
 import { FaCoffee } from "react-icons/fa";
 import devDesk from "/assemble.png";
@@ -23,6 +27,10 @@ const techIcons = [
   { icon: <SiMongodb />, name: "MongoDB" },
   { icon: <SiDrone />, name: "Drone" },
   { icon: <SiGit />, name: "Git" },
+  { icon: <SiPython />, name: "Python" },
+  { icon: <SiNodedotjs />, name: "NodeJS" },
+  { icon: <SiExpress />, name: "ExpressJS" },
+  { icon: <SiBlender />, name: "Blender" },
 ];
 
 function App() {
@@ -262,7 +270,7 @@ function App() {
                 <h2 className="text-5xl font-bold text-[#e39847] mb-2">
                   About Me
                 </h2>
-                <p className="text-lg text-[#23b9b2]">
+                <p className="text-4xl text-[#23b9b2] relax">
                   From a curious learner to a problem-solver in the world of
                   tech.
                 </p>
@@ -284,7 +292,7 @@ function App() {
                   <h3 className="text-2xl font-semibold mb-4 text-[#23b9b2]">
                     Hi, I'm Rajeev Tiwari
                   </h3>
-                  <p className="leading-relaxed">
+                  <p className="leading-relaxed ">
                     I'm an engineering student passionate about crafting
                     impactful solutions at the intersection of{" "}
                     <span className="text-[#e39847]">technology</span> and the
@@ -317,10 +325,13 @@ function App() {
 
               {/* [4] Tech Stack Icons */}
               <section className="py-4 px-4">
-                <h4 className="text-2xl font-bold text-center text-[#e39847] mb-8">
-                  Tech Stack
+                <h4
+                  className="text-2xl font-bold text-center uppercase
+                 text-[#e39847] mb-8"
+                >
+                  TECH STACK
                 </h4>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 justify-center text-center">
+                <div className="grid grid-cols-3 sm:grid-cols-5  gap-6  leading-relaxed justify-center text-center">
                   {techIcons.map(({ icon, name }, index) => (
                     <div
                       key={index}
