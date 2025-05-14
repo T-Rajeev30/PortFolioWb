@@ -212,7 +212,7 @@ function App() {
       {showContent && (
         <div className="main w-full rotate-[-10deg] scale-[1.7] bg-black">
           <div className="landing w-full h-screen bg-black">
-            <div className="navbar absolute top-0 left-0 z-[10] w-full py-10 px-10">
+            <div className="navbar absolute flex  justify-between align-middle top-0 left-0 z-[10] w-full py-10 px-10">
               <div className="logo flex gap-7">
                 <div className="lines flex flex-col gap-[5px]">
                   <div className="line w-10 h-1.5 bg-white"></div>
@@ -222,6 +222,14 @@ function App() {
                 <h3 className="text-3xl -mt-[8px] leading-none text-white">
                   Rockstar
                 </h3>
+              </div>
+              <div className="rightSection flex  flex-col gap-4 ">
+                <h1 className="text-3xl -mt-[8px] leading-none text-white">
+                  About
+                </h1>
+                <h1 className="text-3xl -mt-[8px] leading-none text-white">
+                  Projects{" "}
+                </h1>
               </div>
             </div>
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
