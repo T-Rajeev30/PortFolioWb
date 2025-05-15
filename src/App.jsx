@@ -19,6 +19,7 @@ import {
 import { FaCoffee } from "react-icons/fa";
 import devDesk from "/assemble.png";
 import devAvatar from "/aboutboy.png";
+import Project from "./Pages/Project";
 
 const techIcons = [
   { icon: <SiJavascript />, name: "JavaScript" },
@@ -378,17 +379,17 @@ function App() {
               </section>
 
               {/* [6] Tropical City Banner */}
-              <section className="relative bg-gradient-to-t from-[#0f6363] to-transparent text-center py-20 overflow-hidden">
+              <section className="relative bg-gradient-to-t from-[#112118] to-transparent text-center py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/city-bg.svg')] bg-cover bg-center opacity-10 z-0" />
-                <div className="relative z-10 text-[#d0d3bc]">
-                  <h3 className="text-3xl font-bold">Scroll to see Projects</h3>
-                  <p className="text-lg mt-2">
-                    Let’s Build Something Awesome ✨
-                  </p>
+                <div className="relative flex z-10 text-[#d0d3bc]">
+                  <i className="text-xl ri-arrow-down-line"></i>
+                  <h3 className="text-xl font-bold">Scroll to see Projects</h3>
                 </div>
               </section>
             </div>
-            <div className="project_page w-full h-full bg-[#0f6363]"></div>
+            <div className="project_page w-full h-full bg-[#112118]  ">
+              <Project></Project>
+            </div>
           </div>
         </div>
       )}
