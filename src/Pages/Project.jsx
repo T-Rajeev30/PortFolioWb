@@ -4,7 +4,7 @@ import { ThumbsUp, Github } from "lucide-react";
 const projects = [
   {
     name: "Weather App",
-    image: "https://via.placeholder.com/600x300?text=Weather+App",
+    image: "/public/bg.png",
     description:
       "A weather forecasting application using OpenWeatherMap API with real-time data and city-based search.",
     github: "https://github.com/example/weather-app",
@@ -16,7 +16,7 @@ const projects = [
   },
   {
     name: "Portfolio Website",
-    image: "https://via.placeholder.com/600x300?text=Portfolio",
+    image: "/public/bg.png",
     description:
       "A personal portfolio built with React and TailwindCSS to showcase projects and blogs.",
     github: "https://github.com/example/portfolio",
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     name: "Chat App",
-    image: "https://via.placeholder.com/600x300?text=Chat+App",
+    image: "/public/bg.png",
     description:
       "A real-time chat application using Socket.IO and Node.js with private and group chat support.",
     github: "https://github.com/example/chat-app",
@@ -92,11 +92,11 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section className="relative bg-[#112118]">
+    <section className="relative bg-[#0d1117]">
       {/* Heading */}
       <section className="text-center py-10 px-4">
-        <h2 className="text-3xl font-bold text-[#e39847] mb-2">Projects</h2>
-        <p className="text-2xl text-[#23b9b2]">
+        <h2 className="text-3xl font-bold text-[#f0f6fc] mb-2">Projects</h2>
+        <p className="text-2xl leading-relaxed text-[#58a6ff]">
           From concepts to code — turning ideas into real-world applications
         </p>
       </section>
@@ -116,53 +116,55 @@ export default function ProjectsSection() {
       </div>
 
       {/* Showcase Section */}
-      <div className="w-full flex gap-2 h-120 flex-wrap lg:flex-nowrap px-4 py-4">
-        {/* Left Section */}
-        <div className="relative w-full lg:w-[60%] h-96 bg-amber-200 rounded-xl text-black font-semibold overflow-hidden">
-          {/* Top controls */}
-          <div className="flex justify-end p-2 gap-3">
-            <i className="ri-subtract-line"></i>
-            <i className="ri-stop-mini-line"></i>
-            <i className="ri-close-line"></i>
+      <div className="w-full flex gap-4 h-fit flex-wrap lg:flex-nowrap px-4 py-4">
+        {/* Left (Mini Window) */}
+        <div className="relative w-full lg:w-[60%] aspect-video rounded-xl overflow-hidden border border-[#30363d] shadow-lg bg-[#161b22] flex flex-col">
+          {/* Top Bar */}
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-[#21262d] rounded-t-xl">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
           </div>
 
-          {/* Image background */}
-          <img
-            src={selectedProject ? selectedProject.image : defaultImage}
-            alt="Project"
-            className="w-full h-[80%] object-cover rounded-b-xl"
-          />
+          {/* Image Background */}
+          <div className="flex-1 bg-[#0d1117] relative">
+            <img
+              src={selectedProject ? selectedProject.image : defaultImage}
+              alt="Project"
+              className="w-full h-full object-cover"
+            />
 
-          {/* Language Bar */}
-          {selectedProject && (
-            <div className="absolute bottom-0 left-0 w-full h-6 flex text-xs font-bold">
-              {Object.entries(selectedProject.languages).map(
-                ([lang, percent], idx) => (
-                  <div
-                    key={idx}
-                    style={{
-                      width: `${percent}%`,
-                      backgroundColor: getLangColor(lang),
-                      color: "#000",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      whiteSpace: "nowrap",
-                      overflow: "hidden",
-                    }}
-                    title={`${lang}: ${percent}%`}
-                  >
-                    {lang}
-                  </div>
-                )
-              )}
-            </div>
-          )}
+            {/* Language Bar */}
+            {selectedProject && (
+              <div className="absolute bottom-0 left-0 w-full h-6 flex text-xs font-bold z-10">
+                {Object.entries(selectedProject.languages).map(
+                  ([lang, percent], idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        width: `${percent}%`,
+                        backgroundColor: getLangColor(lang),
+                        color: "#000",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                      }}
+                      title={`${lang}: ${percent}%`}
+                    >
+                      {lang}
+                    </div>
+                  )
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
-        {/* Right Section */}
-        <div className="rightDescription w-full lg:w-[35%] text-[#d0d3bc] space-y-4 p-4">
-          <h1 className="text-2xl font-bold text-[#e39847]">
+        {/* Right Description */}
+        <div className="rightDescription w-full lg:w-[35%] text-[#58a6ff] space-y-4 p-4">
+          <h1 className="text-2xl font-bold text-[#f0f6fc]">
             {selectedProject ? selectedProject.name : "Select a project"}
           </h1>
           <p className="text-sm leading-relaxed">

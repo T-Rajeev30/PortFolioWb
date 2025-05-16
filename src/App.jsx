@@ -14,12 +14,14 @@ import {
   SiPython,
   SiNodedotjs,
   SiExpress,
+  SiRos,
   SiBlender,
 } from "react-icons/si";
 import { FaCoffee } from "react-icons/fa";
 import devDesk from "/assemble.png";
 import devAvatar from "/aboutboy.png";
 import Project from "./Pages/Project";
+import Footer from "./Pages/Fotter";
 
 const techIcons = [
   { icon: <SiJavascript />, name: "JavaScript" },
@@ -32,6 +34,7 @@ const techIcons = [
   { icon: <SiNodedotjs />, name: "NodeJS" },
   { icon: <SiExpress />, name: "ExpressJS" },
   { icon: <SiBlender />, name: "Blender" },
+  { icon: <SiRos />, name: "Ros2" },
 ];
 
 function App() {
@@ -231,6 +234,9 @@ function App() {
                 <h1 className="text-3xl -mt-[8px] leading-none text-white">
                   Projects{" "}
                 </h1>
+                <h1 className="text-3xl -mt-[8px] leading-none text-white">
+                  Contact
+                </h1>
               </div>
             </div>
             <div className="imagesdiv relative overflow-hidden w-full h-screen">
@@ -347,7 +353,7 @@ function App() {
                 >
                   TECH STACK
                 </h4>
-                <div className="grid grid-cols-3 sm:grid-cols-5  gap-6  leading-relaxed justify-center text-center">
+                <div className="grid grid-cols-3 sm:grid-cols-6  gap-6  leading-relaxed justify-center text-center">
                   {techIcons.map(({ icon, name }, index) => (
                     <div
                       key={index}
@@ -379,7 +385,7 @@ function App() {
               </section>
 
               {/* [6] Tropical City Banner */}
-              <section className="relative bg-gradient-to-t from-[#112118] to-transparent text-center py-20 overflow-hidden">
+              <section className="relative bg-gradient-to-t from-[#0d1117] to-transparent text-center py-20 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/city-bg.svg')] bg-cover bg-center opacity-10 z-0" />
                 <div className="relative flex z-10 text-[#d0d3bc]">
                   <i className="text-xl ri-arrow-down-line"></i>
@@ -387,8 +393,11 @@ function App() {
                 </div>
               </section>
             </div>
-            <div className="project_page w-full h-full bg-[#112118]  ">
+            <div className="project_page w-full h-full bg-[#0d1117]  ">
               <Project></Project>
+            </div>
+            <div className="footer">
+              <Footer></Footer>
             </div>
           </div>
         </div>
