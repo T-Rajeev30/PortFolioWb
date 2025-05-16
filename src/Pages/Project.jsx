@@ -43,7 +43,7 @@ const projects = [
 const defaultImage =
   "https://via.placeholder.com/600x300?text=👋+Click+a+Section!";
 
-export default function ProjectsSection() {
+export default function Project() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [likes, setLikes] = useState({});
 
@@ -172,8 +172,48 @@ export default function ProjectsSection() {
               ? selectedProject.description
               : "Click on a project from the top scroll list to view its details here."}
           </p>
+
+          {/* Language Breakdown Bar (Right Section) */}
+          {selectedProject?.languages && (
+            <div className="mt-4">
+              <h2 className="text-sm font-semibold text-[#f0f6fc] mb-1">
+                Languages:
+              </h2>
+              <div className="flex h-3 w-full rounded overflow-hidden border border-[#30363d]">
+                {Object.entries(selectedProject.languages).map(
+                  ([lang, percent], idx) => (
+                    <div
+                      key={idx}
+                      className="h-full"
+                      style={{
+                        width: `${percent}%`,
+                        backgroundColor: getLangColor(lang),
+                      }}
+                      title={`${lang}: ${percent}%`}
+                    />
+                  )
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2 mt-2 text-xs text-[#d0d3bc]">
+                {Object.entries(selectedProject.languages).map(
+                  ([lang, percent], idx) => (
+                    <div key={idx} className="flex items-center gap-1">
+                      <span
+                        className="w-3 h-3 inline-block rounded-full"
+                        style={{ backgroundColor: getLangColor(lang) }}
+                      ></span>
+                      <span>
+                        {lang} ({percent}%)
+                      </span>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          )}
+
           {selectedProject && (
-            <div className="flex items-center gap-4 mt-2">
+            <div className="flex items-center gap-4 mt-4">
               <a
                 href={selectedProject.github}
                 target="_blank"
